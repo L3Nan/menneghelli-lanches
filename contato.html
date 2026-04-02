@@ -3,133 +3,119 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contato — Tha Modas e Acessórios</title>
+  <title>Contato — Meneghelli Lanches</title>
+  <meta name="description" content="Fale com a Meneghelli Lanches por WhatsApp, confira horário e atendimento.">
   <link rel="stylesheet" href="./css/style.css">
   <script type="module" src="./js/app.js"></script>
 </head>
 <body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="top-header">
+        <div class="container top-header-inner">
+          <button class="header-icon interactive-control" type="button" aria-label="Buscar no site" data-search-trigger>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke-width="2"></circle>
+              <path d="M21 21l-4.3-4.3" stroke-width="2"></path>
+            </svg>
+          </button>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div>Frete grátis em pedidos acima de R$250</div>
-    <div class="topbar-right">📞 (11) 91234-5678</div>
-  </div>
-</div>
-<header class="hero-header">
-  <div class="header-inner header-hero">
-    <nav class="nav nav-left">
-      <a href="./index.html">Inicio</a>
-      <a href="./loja.html">Loja</a>
-      <a href="./contato.html">Contato</a>
-    </nav>
-    <a class="brand hero-brand" href="./index.html">
-      <img class="hero-logo" src="./uploads/logo-redonda.png" alt="Tha Modas e Acessórios">
-    </a>
-    <div class="actions hero-actions">
-      <button class="pill" id="searchToggle" type="button" aria-label="Buscar">
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </button>
-      <a class="pill" href="./carrinho.html">
-        Cart
-        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 7h12l-1.5 12h-9L6 7z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7a3 3 0 016 0"></path>
-        </svg>
-        <span class="badge" id="cartCount">0</span>
-      </a>
-    </div>
-  </div>
-</header>
+          <a class="brand-logo" href="./index.html" aria-label="Meneghelli Lanches">
+            <img src="./uploads/topo menne.png" alt="Logo Meneghelli Lanches" loading="eager">
+          </a>
 
-<div class="search-overlay" id="searchOverlay">
-  <div class="search-modal">
-    <input type="text" id="searchInput" placeholder="Buscar produtos..." autocomplete="off">
-    <button class="search-close" id="searchClose" aria-label="Fechar">×</button>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-</div>
-
-<main class="page">
-  <section class="hero">
-    <div class="hero-content">
-      <div class="logo-block">
-        <img class="logo-mark" src="./uploads/tha-modas-logo.png" width="300" alt="Tha Modas e Acessórios" style="height:auto">
-      </div>
-    </div>
-  </section>
-
-  <div class="container">
-    <h1 class="section-title" style="margin-top:24px">Contato</h1>
-    
-    <div class="grid">
-      <div class="card contact-card" style="grid-column: span 6;">
-        <div class="card-body" style="padding:32px">
-          <h2 class="card-title" style="font-size:22px;margin-bottom:16px;color:#b77b66">Canais de Atendimento</h2>
-          <div style="display:flex;flex-direction:column;gap:16px;font-size:16px;color:#8b6f68">
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="font-size:20px">📱</span>
-              <span><strong>WhatsApp:</strong> (11) 91234-5678</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="font-size:20px">📸</span>
-              <span><strong>Instagram:</strong> @thamadaeacessorios</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="font-size:20px">📧</span>
-              <span><strong>Email:</strong> contato@thamodas.com.br</span>
-            </div>
-          </div>
+          <a class="cart-button interactive-control" href="./carrinho.html" aria-label="Abrir carrinho">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 7h11l-1.3 9H8.3L7 7zm2-1a3 3 0 0 1 6 0h2a5 5 0 0 0-10 0h2z"></path>
+            </svg>
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
         </div>
       </div>
 
-      <div class="card contact-card" style="grid-column: span 6;">
-        <div class="card-body" style="padding:32px">
-          <h2 class="card-title" style="font-size:22px;margin-bottom:16px;color:#b77b66">Horário de Funcionamento</h2>
-          <div style="display:flex;flex-direction:column;gap:12px;font-size:16px;color:#8b6f68">
-            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(199,154,122,.2);padding-bottom:8px">
-              <span>Segunda a Sexta</span>
-              <strong>09:00 — 18:00</strong>
-            </div>
-            <div style="display:flex;justify-content:space-between;border-bottom:1px solid rgba(199,154,122,.2);padding-bottom:8px">
-              <span>Sábado</span>
-              <strong>09:00 — 13:00</strong>
-            </div>
-            <div style="display:flex;justify-content:space-between;padding-bottom:8px">
-              <span>Domingo</span>
-              <strong style="color:var(--tm-rose)">Fechado</strong>
-            </div>
-          </div>
+      <div class="nav-bar">
+        <div class="container nav-bar-inner">
+          <button class="menu-toggle interactive-control" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </button>
+
+          <nav class="site-nav" id="siteNav" aria-label="Menu principal">
+            <a href="./index.html">Início</a>
+            <a href="./loja.html">Cardápio</a>
+            <a href="./loja.html#combos">Combos</a>
+            <a href="./loja.html#bebidas">Bebidas</a>
+            <a href="./contato.html" aria-current="page">Contato</a>
+          </nav>
         </div>
       </div>
-    </div>
-  </div>
-</main>      </div>
-    </div>
-  </div>
-</main>
+    </header>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <strong style="color:var(--brand)">Tha Modas e Acessórios</strong>
-      <div class="muted">Moda feminina com estilo e atendimento direto.</div>
-    </div>
-    <div class="footer-col">
-      <strong>Links</strong>
-      <div><a href="./entrega-e-prazos.html">Entrega e prazos</a></div>
-      <div><a href="./trocas-e-devolucoes.html">Trocas e devoluções</a></div>
-      <div><a href="./politica-de-privacidade.html">Privacidade</a></div>
-      <div><a href="./termos-de-uso.html">Termos</a></div>
-    </div>
-    <div class="footer-col">
-      <strong>Contato</strong>
-      <div><a href="./contato.html">WhatsApp / Instagram</a></div>
-      <div class="muted">© Todos os direitos reservados</div>
-    </div>
-  </div>
-</footer>
+    <main class="page-main">
+      <section class="page-section">
+        <div class="container contact-grid">
+          <article class="contact-card fade-in">
+            <h1 class="page-title">Contato</h1>
+            <p class="page-text">Atendimento rápido para pedidos, dúvidas e confirmação de entrega. Nossa equipe responde pelo WhatsApp e deixa seu pedido pronto para sair da chapa.</p>
+            <ul class="contact-list">
+              <li><strong>WhatsApp:</strong> (11) 91234-5678</li>
+              <li><strong>Horário:</strong> terça a domingo, das 18h às 23h30</li>
+              <li><strong>Entrega:</strong> 30 a 45 minutos, com frete grátis acima de R$50</li>
+              <li><strong>Retirada:</strong> disponível direto no balcão</li>
+            </ul>
+            <div class="contact-actions">
+              <a class="button-primary" href="https://wa.me/5511912345678" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+              <a class="button-secondary" href="./loja.html">Ver cardápio</a>
+            </div>
+          </article>
 
+          <aside class="contact-stack">
+            <article class="contact-card">
+              <h2 class="summary-title">Atendimento oficial</h2>
+              <p class="page-text">Use o carrinho do site para montar o pedido e envie automaticamente com resumo, itens e total.</p>
+            </article>
+            <article class="contact-card">
+              <h2 class="summary-title">Redes e localização</h2>
+              <p class="page-text">Instagram para novidades, WhatsApp para pedidos e localização para facilitar sua retirada.</p>
+              <div class="contact-actions">
+                <a class="button-secondary" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+                <a class="button-secondary" href="./carrinho.html">Meu pedido</a>
+              </div>
+            </article>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="./index.html" aria-label="Meneghelli Lanches">
+          <img class="footer-brand" src="./uploads/parte de baixo mene.png" alt="Meneghelli Lanches" loading="lazy">
+        </a>
+        <div class="footer-social" aria-label="Redes sociais">
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"></rect>
+              <circle cx="12" cy="12" r="3.5" stroke-width="2"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="social-link" href="https://wa.me/5511912345678" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M.5 11.9C.5 5.9 5.4 1 11.4 1s10.9 4.9 10.9 10.9S17.4 22.8 11.4 22.8c-1.8 0-3.5-.4-5-1.2l-4.4 1L3 18.3c-1-1.7-1.5-3.6-1.5-5.7z"></path>
+            </svg>
+          </a>
+          <a class="social-link" href="./contato.html" aria-label="Localização e contato">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z" stroke-width="2"></path>
+              <circle cx="12" cy="10" r="3" stroke-width="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-copy">© 2024 Meneghelli Lanches. Todos os direitos reservados.</div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

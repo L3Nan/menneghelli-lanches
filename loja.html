@@ -3,93 +3,134 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Loja — Tha Modas e Acessórios</title>
+  <title>Cardápio — Meneghelli Lanches</title>
+  <meta name="description" content="Explore o cardápio da Meneghelli Lanches com burgers, combos, acompanhamentos e bebidas.">
   <link rel="stylesheet" href="./css/style.css">
   <script type="module" src="./js/app.js"></script>
 </head>
-<body data-page="loja">
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="top-header">
+        <div class="container top-header-inner">
+          <button class="header-icon interactive-control" type="button" aria-label="Buscar no site" data-search-trigger>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke-width="2"></circle>
+              <path d="M21 21l-4.3-4.3" stroke-width="2"></path>
+            </svg>
+          </button>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <div>Frete grátis em pedidos acima de R$250</div>
-    <div class="topbar-right">📞 (11) 91234-5678</div>
-  </div>
-</div>
-<header class="hero-header">
-  <div class="header-inner header-hero">
-    <nav class="nav nav-left">
-      <a href="./index.html">Inicio</a>
-      <a href="./loja.html">Loja</a>
-      <a href="./contato.html">Contato</a>
-    </nav>
-    <a class="brand hero-brand" href="./index.html">
-      <img class="hero-logo" src="./uploads/logo-redonda.png" alt="Tha Modas e Acessórios">
-    </a>
-    <div class="actions hero-actions">
-      <button class="pill" id="searchToggle" type="button" aria-label="Buscar">
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </button>
-      <a class="pill" href="./carrinho.html">
-        Cart
-        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 7h12l-1.5 12h-9L6 7z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7a3 3 0 016 0"></path>
-        </svg>
-        <span class="badge" id="cartCount">0</span>
-      </a>
-    </div>
-  </div>
-</header>
+          <a class="brand-logo" href="./index.html" aria-label="Meneghelli Lanches">
+            <img src="./uploads/topo menne.png" alt="Logo Meneghelli Lanches" loading="eager">
+          </a>
 
-<div class="search-overlay" id="searchOverlay">
-  <div class="search-modal">
-    <input type="text" id="searchInput" placeholder="Buscar produtos..." autocomplete="off">
-    <button class="search-close" id="searchClose" aria-label="Fechar">×</button>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-</div>
-
-<main class="page">
-  <section class="logo-block-section store-hero-branding">
-    <div class="logo-block">
-      <img class="logo-mark" src="./uploads/tha-modas-logo.png" width="300" alt="Tha Modas e Acessórios" style="height:auto">
-    </div>
-  </section>
-  <nav id="categoryBar" class="category-bar" aria-label="Categorias"></nav>
-
-  <div class="container">
-    <section class="section">
-      <h1 class="section-title">Loja</h1>
-
-      <div class="section">
-        <div class="grid" id="gridLoja"></div>
+          <a class="cart-button interactive-control" href="./carrinho.html" aria-label="Abrir carrinho">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 7h11l-1.3 9H8.3L7 7zm2-1a3 3 0 0 1 6 0h2a5 5 0 0 0-10 0h2z"></path>
+            </svg>
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+        </div>
       </div>
-    </section>
-  </div>
-</main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <strong style="color:var(--brand)">Tha Modas e Acessórios</strong>
-      <div class="muted">Moda feminina com estilo e atendimento direto.</div>
-    </div>
-    <div class="footer-col">
-      <strong>Links</strong>
-      <div><a href="./entrega-e-prazos.html">Entrega e prazos</a></div>
-      <div><a href="./trocas-e-devolucoes.html">Trocas e devoluções</a></div>
-      <div><a href="./politica-de-privacidade.html">Privacidade</a></div>
-      <div><a href="./termos-de-uso.html">Termos</a></div>
-    </div>
-    <div class="footer-col">
-      <strong>Contato</strong>
-      <div><a href="./contato.html">WhatsApp / Instagram</a></div>
-      <div class="muted">© Todos os direitos reservados</div>
-    </div>
-  </div>
-</footer>
+      <div class="nav-bar">
+        <div class="container nav-bar-inner">
+          <button class="menu-toggle interactive-control" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </button>
 
+          <nav class="site-nav" id="siteNav" aria-label="Menu principal">
+            <a href="./index.html">Início</a>
+            <a href="./loja.html" aria-current="page">Cardápio</a>
+            <a href="#combos">Combos</a>
+            <a href="#bebidas">Bebidas</a>
+            <a href="./contato.html">Contato</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <section class="page-section">
+        <div class="container catalog-page">
+          <div class="catalog-intro fade-in">
+            <h1 class="page-title">Cardápio completo</h1>
+            <p class="page-text">Monte seu pedido com burgers premium, combos completos, acompanhamentos e bebidas. Adicione ao carrinho e finalize com uma mensagem pronta no WhatsApp.</p>
+            <div class="page-actions">
+              <a class="button-primary" href="./carrinho.html">Ver meu pedido</a>
+              <a class="button-secondary" href="./index.html">Voltar para a home</a>
+            </div>
+          </div>
+
+          <section class="catalog-block" id="burgers" aria-labelledby="burgersTitle">
+            <div class="section-heading">
+              <span class="section-heading-line" aria-hidden="true"></span>
+              <h2 id="burgersTitle">Burgers</h2>
+              <span class="section-heading-line" aria-hidden="true"></span>
+            </div>
+            <div class="menu-grid" data-category-grid="burgers"></div>
+          </section>
+
+          <section class="catalog-block" id="combos" aria-labelledby="combosTitle">
+            <div class="section-heading">
+              <span class="section-heading-line" aria-hidden="true"></span>
+              <h2 id="combosTitle">Combos</h2>
+              <span class="section-heading-line" aria-hidden="true"></span>
+            </div>
+            <div class="menu-grid" data-category-grid="combos"></div>
+          </section>
+
+          <section class="catalog-block" id="acompanhamentos" aria-labelledby="sidesTitle">
+            <div class="section-heading">
+              <span class="section-heading-line" aria-hidden="true"></span>
+              <h2 id="sidesTitle">Acompanhamentos</h2>
+              <span class="section-heading-line" aria-hidden="true"></span>
+            </div>
+            <div class="menu-grid" data-category-grid="acompanhamentos"></div>
+          </section>
+
+          <section class="catalog-block" id="bebidas" aria-labelledby="drinksTitle">
+            <div class="section-heading">
+              <span class="section-heading-line" aria-hidden="true"></span>
+              <h2 id="drinksTitle">Bebidas</h2>
+              <span class="section-heading-line" aria-hidden="true"></span>
+            </div>
+            <div class="menu-grid" data-category-grid="bebidas"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="./index.html" aria-label="Meneghelli Lanches">
+          <img class="footer-brand" src="./uploads/parte de baixo mene.png" alt="Meneghelli Lanches" loading="lazy">
+        </a>
+        <div class="footer-social" aria-label="Redes sociais">
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"></rect>
+              <circle cx="12" cy="12" r="3.5" stroke-width="2"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="social-link" href="https://wa.me/5511912345678" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M.5 11.9C.5 5.9 5.4 1 11.4 1s10.9 4.9 10.9 10.9S17.4 22.8 11.4 22.8c-1.8 0-3.5-.4-5-1.2l-4.4 1L3 18.3c-1-1.7-1.5-3.6-1.5-5.7z"></path>
+            </svg>
+          </a>
+          <a class="social-link" href="./contato.html" aria-label="Localização e contato">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z" stroke-width="2"></path>
+              <circle cx="12" cy="10" r="3" stroke-width="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-copy">© 2024 Meneghelli Lanches. Todos os direitos reservados.</div>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

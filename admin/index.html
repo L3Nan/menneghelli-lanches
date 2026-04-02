@@ -3,31 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin — Tha Modas e Acessórios</title>
-
-  <!-- Netlify Identity -->
+  <meta name="robots" content="noindex" />
+  <title>Admin — Meneghelli Lanches</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <!-- Força o caminho do config.yml (recomendado pela doc do Decap) -->
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
 </head>
-<body>
+<body style="margin:0;min-height:100vh;background:#120904;color:#f6d28b;font-family:Arial,sans-serif;">
   <noscript>Ative o JavaScript para usar o painel.</noscript>
-
+  <div id="adminLoading" style="display:grid;place-items:center;min-height:100vh;padding:24px;text-align:center;">
+    <div>
+      <div style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#f8be2c;">Meneghelli Lanches</div>
+      <h1 style="margin:12px 0 8px;font-size:32px;">Painel administrativo</h1>
+      <p style="margin:0;color:#f2e2bd;">Carregando editor de cards do cardápio...</p>
+    </div>
+  </div>
   <script>
-    // Inicialização manual (evita "tela branca silenciosa")
     window.CMS_MANUAL_INIT = true;
   </script>
-
-  <!-- Decap CMS via jsDelivr (mais estável que unpkg em vários casos) -->
   <script src="https://cdn.jsdelivr.net/npm/decap-cms@latest/dist/decap-cms.js"></script>
-
   <script>
     try {
       CMS.init();
+      document.getElementById("adminLoading")?.remove();
     } catch (e) {
       document.body.innerHTML =
-        "<div style='padding:16px;font-family:Arial'>Falha ao carregar o CMS. Abra o Console (F12) para ver o erro.</div>";
+        "<div style='display:grid;place-items:center;min-height:100vh;padding:24px;background:#120904;color:#f6d28b;font-family:Arial,sans-serif;text-align:center;'><div><div style='font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#f8be2c;'>Meneghelli Lanches</div><h1 style='margin:12px 0 8px;font-size:28px;'>Falha ao carregar o painel</h1><p style='margin:0;color:#f2e2bd;'>Abra o Console do navegador para ver o erro. Em ambiente local, confirme também se o backend local do Decap está ativo.</p></div></div>";
       console.error(e);
     }
 

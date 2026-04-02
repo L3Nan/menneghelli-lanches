@@ -3,146 +3,95 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Política de Privacidade — Tha Modas e Acessórios</title>
+  <title>Política de Privacidade — Meneghelli Lanches</title>
+  <meta name="description" content="Política de privacidade da Meneghelli Lanches.">
   <link rel="stylesheet" href="./css/style.css">
   <script type="module" src="./js/app.js"></script>
 </head>
 <body>
-
-<div class="topbar">
-  <div class="topbar-inner">
-    <div>Frete grátis em pedidos acima de R$250</div>
-    <div class="topbar-right">📞 (11) 91234-5678</div>
-  </div>
-</div>
-<header class="hero-header">
-  <div class="header-inner header-hero">
-    <nav class="nav nav-left">
-      <a href="./index.html">Inicio</a>
-      <a href="./loja.html">Loja</a>
-      <a href="./contato.html">Contato</a>
-    </nav>
-    <a class="brand hero-brand" href="./index.html">
-      <img class="hero-logo" src="./uploads/logo-redonda.png" alt="Tha Modas e Acessórios">
-    </a>
-    <div class="actions hero-actions">
-      <button class="pill" id="searchToggle" type="button" aria-label="Buscar">
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </button>
-      <a class="pill" href="./carrinho.html">
-        Cart
-        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 7h12l-1.5 12h-9L6 7z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7a3 3 0 016 0"></path>
-        </svg>
-        <span class="badge" id="cartCount">0</span>
-      </a>
-    </div>
-  </div>
-</header>
-
-<div class="search-overlay" id="searchOverlay">
-  <div class="search-modal">
-    <input type="text" id="searchInput" placeholder="Buscar produtos..." autocomplete="off">
-    <button class="search-close" id="searchClose" aria-label="Fechar">×</button>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-</div>
-
-<main class="page">
-  <div class="container">
-    <h1 class="section-title">Política de Privacidade</h1>
-
-    <section class="section">
-      <h2 class="section-title" style="font-size:20px">Dados Coletados</h2>
-      <div class="notice">
-        <p>Coletamos apenas as informações necessárias para processar seus pedidos:</p>
-        <ul style="margin-top:8px">
-          <li>Nome e informações de contato (WhatsApp)</li>
-          <li>Endereço de entrega</li>
-          <li>Informações do pedido (produtos, quantidades, valores)</li>
-        </ul>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="top-header">
+        <div class="container top-header-inner">
+          <button class="header-icon interactive-control" type="button" aria-label="Buscar no site" data-search-trigger>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke-width="2"></circle>
+              <path d="M21 21l-4.3-4.3" stroke-width="2"></path>
+            </svg>
+          </button>
+          <a class="brand-logo" href="./index.html" aria-label="Meneghelli Lanches">
+            <img src="./uploads/topo menne.png" alt="Logo Meneghelli Lanches" loading="eager">
+          </a>
+          <a class="cart-button interactive-control" href="./carrinho.html" aria-label="Abrir carrinho">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 7h11l-1.3 9H8.3L7 7zm2-1a3 3 0 0 1 6 0h2a5 5 0 0 0-10 0h2z"></path>
+            </svg>
+            <span class="cart-count" data-cart-count>0</span>
+          </a>
+        </div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title" style="font-size:20px">Cookies e Armazenamento Local</h2>
-      <div class="notice">
-        <p>Utilizamos LocalStorage do navegador para armazenar o carrinho de compras temporariamente.</p>
-        <p>Não utilizamos cookies de rastreamento ou publicidade de terceiros.</p>
-        <p>Seus dados ficam armazenados apenas no seu dispositivo até a finalização do pedido.</p>
+      <div class="nav-bar">
+        <div class="container nav-bar-inner">
+          <button class="menu-toggle interactive-control" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="siteNav">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round"></path>
+            </svg>
+          </button>
+          <nav class="site-nav" id="siteNav" aria-label="Menu principal">
+            <a href="./index.html">Início</a>
+            <a href="./loja.html">Cardápio</a>
+            <a href="./loja.html#combos">Combos</a>
+            <a href="./loja.html#bebidas">Bebidas</a>
+            <a href="./contato.html">Contato</a>
+          </nav>
+        </div>
       </div>
-    </section>
+    </header>
 
-    <section class="section">
-      <h2 class="section-title" style="font-size:20px">Uso das Informações</h2>
-      <div class="notice">
-        <p>As informações coletadas são usadas exclusivamente para:</p>
-        <ul style="margin-top:8px">
-          <li>Processar e entregar seus pedidos</li>
-          <li>Entrar em contato sobre o status do pedido</li>
-          <li>Melhorar nossos serviços</li>
-        </ul>
+    <main class="page-main">
+      <section class="page-section">
+        <div class="container">
+          <article class="page-card fade-in">
+            <h1 class="page-title">Política de Privacidade</h1>
+            <p class="page-text">Os dados informados no pedido são utilizados apenas para contato, confirmação e entrega. Não compartilhamos informações com terceiros fora da operação do atendimento.</p>
+            <ul class="legal-list">
+              <li>• Nome, telefone e endereço são usados apenas para processar o pedido.</li>
+              <li>• As informações enviadas no WhatsApp ficam sujeitas às regras da própria plataforma.</li>
+              <li>• Solicitações de atualização ou exclusão podem ser feitas pelo canal oficial de atendimento.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="./index.html" aria-label="Meneghelli Lanches">
+          <img class="footer-brand" src="./uploads/parte de baixo mene.png" alt="Meneghelli Lanches" loading="lazy">
+        </a>
+        <div class="footer-social" aria-label="Redes sociais">
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"></rect>
+              <circle cx="12" cy="12" r="3.5" stroke-width="2"></circle>
+              <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle>
+            </svg>
+          </a>
+          <a class="social-link" href="https://wa.me/5511912345678" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M.5 11.9C.5 5.9 5.4 1 11.4 1s10.9 4.9 10.9 10.9S17.4 22.8 11.4 22.8c-1.8 0-3.5-.4-5-1.2l-4.4 1L3 18.3c-1-1.7-1.5-3.6-1.5-5.7z"></path>
+            </svg>
+          </a>
+          <a class="social-link" href="./contato.html" aria-label="Localização e contato">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M12 22s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12z" stroke-width="2"></path>
+              <circle cx="12" cy="10" r="3" stroke-width="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <div class="footer-copy">© 2024 Meneghelli Lanches. Todos os direitos reservados.</div>
       </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title" style="font-size:20px">Compartilhamento de Dados</h2>
-      <div class="notice">
-        <p>Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros.</p>
-        <p>Podemos compartilhar informações apenas quando necessário para processar pagamentos ou entregas.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title" style="font-size:20px">Seus Direitos (LGPD)</h2>
-      <div class="notice">
-      <p>Você tem direito a:</p>
-      <ul style="margin-top:8px">
-        <li>Acessar seus dados pessoais</li>
-        <li>Corrigir dados incompletos ou incorretos</li>
-        <li>Solicitar exclusão de seus dados</li>
-        <li>Portabilidade dos dados</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title" style="font-size:20px">Contato para Remoção de Dados</h2>
-    <div class="notice">
-      <p>Para solicitar a remoção ou correção de seus dados, entre em contato via WhatsApp.</p>
-      <p>Responderemos sua solicitação em até 15 dias úteis.</p>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <strong style="color:var(--brand)">Tha Modas e Acessórios</strong>
-      <div class="muted">Moda feminina com estilo e atendimento direto.</div>
-    </div>
-    <div class="footer-col">
-      <strong>Links</strong>
-      <div><a href="./entrega-e-prazos.html">Entrega e prazos</a></div>
-      <div><a href="./trocas-e-devolucoes.html">Trocas e devoluções</a></div>
-      <div><a href="./politica-de-privacidade.html">Privacidade</a></div>
-      <div><a href="./termos-de-uso.html">Termos</a></div>
-    </div>
-    <div class="footer-col">
-      <strong>Contato</strong>
-      <div><a href="./contato.html">WhatsApp / Instagram</a></div>
-      <div class="muted">© Todos os direitos reservados</div>
-    </div>
+    </footer>
   </div>
-</footer>
-
-<script type="module">
-  import { cartCount } from "./js/cart.js";
-  document.getElementById("cartCount").textContent = cartCount();
-</script>
-
 </body>
 </html>
