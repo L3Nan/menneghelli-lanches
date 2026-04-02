@@ -59,7 +59,7 @@ Não há banco de dados nem servidor da aplicação: o conteúdo do cardápio ve
 │   ├── app.js          # Carrinho, renderização, WhatsApp, frete no checkout
 │   └── data.js         # fetch dos JSON em data/
 ├── data/
-│   ├── products.json   # ⭐ Cardápio (principal arquivo de conteúdo)
+│   ├── products.json   # Cardápio (principal arquivo de conteúdo)
 │   ├── settings.json   # Nome da loja, logo, WhatsApp (referência)
 │   ├── shipping.json   # Dados de frete / regiões (quando usados)
 │   └── …
