@@ -1,5 +1,24 @@
 import { loadProducts } from "./data.js";
 
+/** Netlify Identity só estava no /admin/; links de “esqueci a senha” abrem a home com #recovery_token — carrega o widget só nesses casos. */
+(function loadNetlifyIdentityForHashFlow() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+  const hash = window.location.hash || "";
+  if (!/(recovery_token|invite_token|confirmation_token)=/i.test(hash)) return;
+  if (document.querySelector('script[src*="netlify-identity-widget"]')) return;
+
+  const script = document.createElement("script");
+  script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  script.async = true;
+  script.onload = () => {
+    if (!window.netlifyIdentity) return;
+    if (typeof window.netlifyIdentity.init === "function") {
+      window.netlifyIdentity.init();
+    }
+  };
+  document.head.appendChild(script);
+})();
+
 const STORE = {
   whatsapp: "5511912345678",
   deliveryFee: 8.9,
