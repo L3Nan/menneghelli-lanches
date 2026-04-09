@@ -1,0 +1,5 @@
+# Crawlers “bons” respeitam isto; bots agressivos não. Volume anormal: mitigue na hospedagem/CDN.
+User-agent: *
+Allow: /
+
+Disallow: /admin/

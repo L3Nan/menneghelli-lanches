@@ -1,0 +1,27 @@
+/* Ajustes só no painel Decap — não afeta o site público */
+.cms-preview-root {
+  padding: 4px 0 20px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Grade estável na prévia (evita só carrossel se o painel for estreito) */
+.cms-preview-menu-grid.menu-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  flex-wrap: unset !important;
+  overflow-x: visible !important;
+  gap: 14px !important;
+}
+
+.cms-preview-menu-grid .menu-card {
+  width: auto !important;
+  max-width: none !important;
+  flex: unset !important;
+  scroll-snap-align: unset !important;
+}
+
+.cms-preview-card--inactive {
+  outline: 1px dashed rgba(247, 176, 32, 0.35);
+  outline-offset: -1px;
+}

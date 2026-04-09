@@ -1,5 +1,31 @@
 import { loadProducts } from "./data.js";
 
+function escapeHtml(text){
+  const s = text == null ? "" : String(text);
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/** Evita javascript: e URLs malformadas em src vindos do JSON ou do carrinho (localStorage). */
+function safeMediaUrl(url){
+  const u = String(url ?? "").trim();
+  if(!u || /[\s"'<>]/.test(u)){
+    return "";
+  }
+  const head = u.slice(0, 16).toLowerCase();
+  if(head.startsWith("javascript:") || head.startsWith("vbscript:") || head.startsWith("data:text/html")){
+    return "";
+  }
+  if(u.startsWith("./") || u.startsWith("/") || /^https?:\/\//i.test(u)){
+    return u;
+  }
+  return "";
+}
+
 /** Netlify Identity só estava no /admin/; links de “esqueci a senha” abrem a home com #recovery_token — carrega o widget só nesses casos. */
 (function loadNetlifyIdentityForHashFlow() {
   if (typeof window === "undefined" || typeof document === "undefined") return;
@@ -276,7 +302,7 @@ function openWhatsApp(message){
   window.open(url, "_blank", "noopener");
 }
 
-function showToast(message){
+function showToast(message, { asHtml = false } = {}){
   let stack = document.querySelector(".toast-stack");
 
   if(!stack){
@@ -287,7 +313,11 @@ function showToast(message){
 
   const toast = document.createElement("div");
   toast.className = "toast";
-  toast.innerHTML = message;
+  if(asHtml){
+    toast.innerHTML = message;
+  }else{
+    toast.textContent = message;
+  }
   stack.append(toast);
 
   window.setTimeout(() => {
@@ -341,7 +371,7 @@ function addToCart(productId, quantity = 1){
   saveCart(cart);
   updateCartCounters(true);
   renderCartPage();
-  showToast(`<strong>${product.name}</strong> adicionado ao pedido.`);
+  showToast(`<strong>${escapeHtml(product.name)}</strong> adicionado ao pedido.`, { asHtml: true });
 }
 
 function updateCartQuantity(productId, nextQuantity){
@@ -397,15 +427,16 @@ function createProductMedia(product, className, loading = "lazy"){
     return `
       <div class="${className} combo-gallery">
         ${product.galleryImages.map((image, index) => `
-          <img class="combo-gallery-image combo-gallery-image-${index + 1}" src="${image.src}" alt="${image.alt || product.name}" loading="${loading}">
+          <img class="combo-gallery-image combo-gallery-image-${index + 1}" src="${escapeHtml(safeMediaUrl(image.src))}" alt="${escapeHtml(image.alt || product.name)}" loading="${loading}">
         `).join("")}
       </div>
     `;
   }
 
+  const src = safeMediaUrl(product.image);
   return `
     <div class="${className}">
-      <img src="${product.image}" alt="${product.name}" loading="${loading}">
+      <img src="${escapeHtml(src)}" alt="${escapeHtml(product.name)}" loading="${loading}">
     </div>
   `;
 }
@@ -415,11 +446,11 @@ function createProductCard(product){
     <article class="menu-card fade-in">
       ${createProductMedia(product, "menu-card-media")}
       <div class="menu-card-body">
-        <h3 class="menu-card-title">${product.name}</h3>
-        <p class="menu-card-subtitle">${product.subtitle}</p>
+        <h3 class="menu-card-title">${escapeHtml(product.name)}</h3>
+        <p class="menu-card-subtitle">${escapeHtml(product.subtitle)}</p>
         <div class="menu-card-price">${formatCurrency(product.price)}</div>
         <div class="menu-card-actions">
-          <button class="order-button" type="button" data-add-to-cart="${product.id}">
+          <button class="order-button" type="button" data-add-to-cart="${escapeHtml(product.id)}">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M17.5 14.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.8.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.1-1.4-.5-2.6-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.6.2-.2.3-.4.5-.6.1-.2.2-.4.3-.6.1-.2 0-.5 0-.6 0-.2-.7-1.7-1-2.3-.2-.6-.5-.5-.8-.5h-.7c-.2 0-.6.1-.8.4-.3.3-1.1 1-1.1 2.5s1.2 2.9 1.4 3.1c.2.2 2.3 3.6 5.6 5 .8.4 1.5.6 2 .8.8.3 1.6.2 2.2.1.7-.1 1.8-.8 2-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.6-.4zM12.1 2C6.6 2 2.1 6.5 2.1 12c0 1.8.5 3.6 1.4 5.1L2 22l5-1.3c1.5.8 3.2 1.2 5 1.2 5.5 0 10-4.5 10-10S17.6 2 12.1 2z"></path>
             </svg>
@@ -465,17 +496,17 @@ function renderProductPage(){
         ${createProductMedia(product, "product-gallery", "eager")}
       </div>
       <div class="product-panel">
-        <span class="product-category">${product.categoryLabel}</span>
-        <h1 class="product-title">${product.name}</h1>
-        <p class="product-subtitle">${product.subtitle}</p>
+        <span class="product-category">${escapeHtml(product.categoryLabel)}</span>
+        <h1 class="product-title">${escapeHtml(product.name)}</h1>
+        <p class="product-subtitle">${escapeHtml(product.subtitle)}</p>
         <div class="product-price">${formatCurrency(product.price)}</div>
-        <p class="product-description">${product.description}</p>
+        <p class="product-description">${escapeHtml(product.description)}</p>
         <ul class="product-highlights">
-          ${product.highlights.map((highlight) => `<li>• ${highlight}</li>`).join("")}
+          ${product.highlights.map((highlight) => `<li>• ${escapeHtml(highlight)}</li>`).join("")}
         </ul>
         <div class="product-actions">
-          <button class="button-primary" type="button" data-add-to-cart="${product.id}">Adicionar ao pedido</button>
-          <button class="button-secondary" type="button" data-whatsapp-product="${product.id}">Pedir no WhatsApp</button>
+          <button class="button-primary" type="button" data-add-to-cart="${escapeHtml(product.id)}">Adicionar ao pedido</button>
+          <button class="button-secondary" type="button" data-whatsapp-product="${escapeHtml(product.id)}">Pedir no WhatsApp</button>
         </div>
       </div>
     </div>
@@ -515,26 +546,29 @@ function renderCartPage(){
   }
 
   emptyRoot.hidden = true;
-  itemsRoot.innerHTML = cart.map((item) => `
+  itemsRoot.innerHTML = cart.map((item) => {
+    const imgSrc = safeMediaUrl(item.image);
+    return `
     <article class="cart-item">
       <div class="cart-item-media">
-        <img src="${item.image}" alt="${item.name}" loading="lazy">
+        <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(item.name)}" loading="lazy">
       </div>
       <div>
-        <h2 class="cart-item-name">${item.name}</h2>
-        <p class="cart-item-note">${item.subtitle}</p>
+        <h2 class="cart-item-name">${escapeHtml(item.name)}</h2>
+        <p class="cart-item-note">${escapeHtml(item.subtitle)}</p>
         <div class="cart-item-price">${formatCurrency(item.price)}</div>
       </div>
       <div class="cart-item-actions">
-        <div class="qty-control" aria-label="Quantidade de ${item.name}">
-          <button class="qty-button" type="button" data-qty-action="decrease" data-product-id="${item.id}" aria-label="Diminuir quantidade">−</button>
+        <div class="qty-control" aria-label="Quantidade de ${escapeHtml(item.name)}">
+          <button class="qty-button" type="button" data-qty-action="decrease" data-product-id="${escapeHtml(item.id)}" aria-label="Diminuir quantidade">−</button>
           <span class="qty-value">${item.quantity}</span>
-          <button class="qty-button" type="button" data-qty-action="increase" data-product-id="${item.id}" aria-label="Aumentar quantidade">+</button>
+          <button class="qty-button" type="button" data-qty-action="increase" data-product-id="${escapeHtml(item.id)}" aria-label="Aumentar quantidade">+</button>
         </div>
-        <button class="text-link" type="button" data-remove-item="${item.id}">Remover</button>
+        <button class="text-link" type="button" data-remove-item="${escapeHtml(item.id)}">Remover</button>
       </div>
     </article>
-  `).join("");
+  `;
+  }).join("");
 
   summaryRoot.innerHTML = `
     <h2 class="summary-title">Resumo do pedido</h2>
